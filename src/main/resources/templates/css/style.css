@@ -279,3 +279,89 @@ input:focus, select:focus {
 }
 
 .form-container { animation: fadeUp 0.6s ease-out; }
+
+
+/*forgot password theme*/
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #023e8a, #0077b6, #0096c7, #00b4d8);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #023e8a;
+}
+
+.wrapper {
+  width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #023e8a;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #023e8a;
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #0096c7;
+  margin-bottom: 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  border-radius: 10px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #023e8a;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  text-align: center;
+  font-weight: bold;
+  margin-top: -10px;
+  color: green;
+}
+
+.error {
+  color: red;
+}

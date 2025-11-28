@@ -7,7 +7,9 @@ import com.xypha.onlineBus.account.users.dto.UserResponse;
 import com.xypha.onlineBus.account.users.entity.User;
 import com.xypha.onlineBus.account.users.mapper.UserMapper;
 import com.xypha.onlineBus.account.users.mapper.UserMapperUtil;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -143,9 +145,13 @@ public class UserService implements UserDetailsService {
 
 
 
+
+
     @Override
     public UserDetails loadUserByUsername (String username) throws UsernameNotFoundException {
         User user = userMapper.findByUsername(username);
+        System.out.println(username);
+        System.out.println("DB password: " + user.getPassword());
 
         if (user == null) {
             throw new UsernameNotFoundException("User not found!");

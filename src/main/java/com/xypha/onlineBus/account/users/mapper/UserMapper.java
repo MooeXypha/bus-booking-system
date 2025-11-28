@@ -100,6 +100,16 @@ public interface UserMapper {
     User findByUsername (String username)
 ;
 
+    //For forget password part
+    @Update("Update users SET password = #{password} WHERE id = #{id}")
+    void updatePassword (
+            @Param("id") Long id,
+            @Param("password") String password
+    );
+
+    @Select("SELECT * FROM users WHERE gmail = #{gmail}")
+    User findByEmail (@Param("gmail") String gmail);
+
 
 
 

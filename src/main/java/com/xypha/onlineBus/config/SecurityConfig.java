@@ -60,16 +60,21 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         //Public endpoints
-                        .requestMatchers("/api/auth/**").permitAll()
+                        //Normal user endpoints
+                        .requestMatchers("/api/auth/login",
+                                "/api/auth/register",
+                                "/api/auth/forgot-password",
+                                "/api/auth/reset-password",
+                                "/api/auth/reset-tokens").permitAll()
+
 
                         //Normal user endpoints
-                        .requestMatchers("/api/users/me/**").hasRole("USER")
-
+                        .requestMatchers("/api/auth/me").authenticated()
                         //ADMIN scope(can view users)
                         .requestMatchers(HttpMethod.GET,"/api/users/**").hasAnyRole("ADMIN","SUPER_ADMIN")
 
                         //Super Admin endpoints (full control)
-                        .requestMatchers(HttpMethod.PUT, "/api/users/**").hasRole("SUPER_ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/users/**").authenticated()
                         .requestMatchers(HttpMethod.DELETE,"/api/users/**").hasRole("SUPER_ADMIN")
 
                         .anyRequest().authenticated()

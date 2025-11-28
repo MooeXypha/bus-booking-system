@@ -4,7 +4,21 @@ spring:
     username: postgres
     password: admin
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: guguu957@gmail.com
+    password: dqrz qrjd byxm hwqq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        debug: true
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
 
 mybatis.type-aliases-package: com.xypha.OnlineBus.Buses.Entity
+
